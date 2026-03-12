@@ -1,0 +1,54 @@
+/* ----------------HEADER---------------- */
+
+header {
+  height: 60px;
+  padding: 10px;
+}
+header input {
+  background-color: #f5f6f7;
+  padding: 1px 2px 1px 40px;
+  border-radius: 7px;
+  border: #f5f6f7;
+}
+.header-logo {
+  width: 80px;
+  object-fit: contain;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-section input {
+  width: 630px;
+  height: 40px;
+}
+
+.right-side-header {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+
+header button {
+  font-size: 12px;
+  width: 115px;
+  height: 30px;
+  border: 1px #2cb1ba solid;
+  border-radius: 7px;
+}
+.login-signup-btn {
+  display: flex;
+  gap: 20px;
+  button {
+    color: #2cb1ba;
+    background-color: white;
+  }
+}
+
+.sell-btn {
+  color: white;
+  background-color: #2cb1ba;
+}

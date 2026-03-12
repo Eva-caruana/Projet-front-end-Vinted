@@ -1,0 +1,60 @@
+/* Articles */
+/* Hero */
+.hero > img {
+  height: 450px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.homepage-articles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.offer-article {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+}
+
+.owner-info {
+  display: flex;
+
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+
+  margin-bottom: 10px;
+
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.homepage-offer-info {
+  display: flex;
+  flex-direction: column;
+}
+.homepage-offer-info > img {
+  height: 360px;
+  width: 230px;
+  object-fit: cover;
+}
+
+.homepage-product-details {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  margin-top: 10px;
+  align-items: flex-start;
+}
+
+/* //retirer les couleurs des liens */
+.homepage-articles a {
+  text-decoration: none;
+  color: inherit;
+}

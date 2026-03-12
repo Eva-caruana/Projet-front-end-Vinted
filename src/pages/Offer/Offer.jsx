@@ -31,20 +31,79 @@ const Offer = () => {
   }, []);
 
   return (
-    <main className="offer">
+    <main className="main-offer-page">
       <div className="container">
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          <section>
-            <img
-              src={data.product_image.secure_url}
-              alt="grand aperçu de l'offre"
-            />
-            <aside>
-              <p>{data.product_price} €</p>
-              <div className="offer-"></div>
-              <button>Acheter</button>
+          <section className="offer-page">
+            <div>
+              <img
+                className="offer-page-img"
+                src={data.product_image.secure_url}
+                alt="grand aperçu de l'offre"
+              />
+            </div>
+            <aside className="offer-bloc">
+              <p className="offer-price">{data.product_price} €</p>
+              <div className="offer-details">
+                {data.product_details.map((detail, index) => {
+                  return (
+                    <div className="detail-lines" key={index}>
+                      {detail.MARQUE && (
+                        <span>
+                          <p className="detail-key">MARQUE</p>
+                          <p className="detail-value">{detail.MARQUE}</p>
+                        </span>
+                      )}
+
+                      {detail.TAILLE && (
+                        <span>
+                          <p className="detail-key">TAILLE</p>
+                          <p className="detail-value">{detail.TAILLE}</p>
+                        </span>
+                      )}
+
+                      {detail["ÉTAT"] && (
+                        <span>
+                          <p className="detail-key">ÉTAT</p>
+                          <p className="detail-value">{detail["ÉTAT"]}</p>
+                        </span>
+                      )}
+
+                      {detail.COULEUR && (
+                        <span>
+                          <p className="detail-key">COULEUR</p>
+                          <p className="detail-value">{detail.COULEUR}</p>
+                        </span>
+                      )}
+
+                      {detail.EMPLACEMENT && (
+                        <span>
+                          <p className="detail-key">EMPLACEMENT</p>
+                          <p className="detail-value">{detail.EMPLACEMENT}</p>
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* ------------------------------ */}
+
+              <div className="offer-content">
+                <h3 className="offer-title">{data.product_name}</h3>
+                <p className="offer-description">{data.product_description}</p>
+
+                <div className="offer-owner">
+                  <img
+                    src={data.owner.account.avatar.secure_url}
+                    alt={data.owner.account.username}
+                  />
+                  <span>{data.owner.account.username}</span>
+                </div>
+                <button>Acheter</button>
+              </div>
             </aside>
           </section>
         )}
@@ -54,7 +113,3 @@ const Offer = () => {
 };
 
 export default Offer;
-
-{
-  /* <Link to="/home">Go to product 12345678</Link>; */
-}

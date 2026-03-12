@@ -5,7 +5,6 @@ import axios from "axios";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Offer from "./pages/Offer/Offer";
-import Footer from "./components/Footer/Footer";
 
 //declaration de fonction avec states
 function App() {
@@ -41,7 +40,6 @@ function App() {
           <Route path="/" element={<Home data={data} />} />
           <Route path="/offer/:id" element={<Offer />} />
         </Routes>
-        <Footer />
       </Router>
     </>
   );
