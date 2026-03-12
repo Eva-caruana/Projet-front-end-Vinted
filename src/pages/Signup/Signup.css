@@ -1,0 +1,25 @@
+/* ------------------------SIGNUP */
+
+.signup-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+}
+
+.signup-page form {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-btn {
+  height: 45px;
+  width: 275px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2cb1ba;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}

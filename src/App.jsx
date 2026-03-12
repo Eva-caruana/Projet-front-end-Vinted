@@ -5,6 +5,8 @@ import axios from "axios";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Offer from "./pages/Offer/Offer";
+import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
 
 //declaration de fonction avec states
 function App() {
@@ -39,6 +41,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home data={data} />} />
           <Route path="/offer/:id" element={<Offer />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </>
