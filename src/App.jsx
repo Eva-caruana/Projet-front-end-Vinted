@@ -12,7 +12,19 @@ import Login from "./pages/Login/Login";
 function App() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isConnected, setIsConnected] = useState(false);
 
+  // Lier le fait detre connecté avec un token, si un token existe=connexion, si on veut la connexion=suppression du token
+  const handleToken = (token) => {
+    if (token) {
+      Cookies.set("userToken", token);
+      setIsConnected(true);
+    } else {
+      Cookies.remove("userToken");
+      setIsConnected(false);
+    }
+  };
+  // Il y a une requete donc utilisation du use effect
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,12 +49,36 @@ function App() {
   ) : (
     <>
       <Router>
-        <Header />
+        <Header handleToken={handleToken} setIsConnected={setIsConnected} />
         <Routes>
           <Route path="/" element={<Home data={data} />} />
           <Route path="/offer/:id" element={<Offer />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/signup"
+            element={
+              <Signup
+                isConnected={isConnected}
+                setIsConnected={setIsConnected}
+                handleToken={handleToken}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <Login
+                isConnected={isConnected}
+                setIsConnected={setIsConnected}
+                handleToken={handleToken}
+              />
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <div className="container">Vous n'êtes pas censés etre ici</div>
+            }
+          />
         </Routes>
       </Router>
     </>

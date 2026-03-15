@@ -3,18 +3,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: orange;
 }
 
 .login-page form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  height: 400px;
+  width: 275px;
 }
 
+.login-page input {
+  height: 55px;
+  border: none;
+  border-bottom: 0.5px #999999 solid;
+}
 .connect-btn {
+  margin-top: 30px;
   height: 45px;
-  width: 275px;
+  width: 100%;
   border: none;
   border-radius: 5px;
   background-color: #2cb1ba;

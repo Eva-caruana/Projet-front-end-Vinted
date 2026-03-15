@@ -12,18 +12,33 @@ header input {
 }
 .header-logo {
   width: 80px;
-  object-fit: contain;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .header-section {
+  gap: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header-section input {
+.search {
+  position: relative;
+}
+.search-input {
   width: 630px;
   height: 40px;
+  padding-left: 40px;
+}
+.search-icon {
+  left: 20px;
+  position: absolute;
+  left: 10px;
+  /* Mettre verticalement l'icone */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999999;
 }
 
 .right-side-header {
@@ -38,10 +53,19 @@ header button {
   height: 30px;
   border: 1px #2cb1ba solid;
   border-radius: 7px;
+  cursor: pointer;
 }
+
+.deconnection-btn {
+  color: white;
+  background-color: #c2175b;
+  border: none;
+  cursor: pointer;
+}
+
 .login-signup-btn {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   button {
     color: #2cb1ba;
     background-color: white;
@@ -51,9 +75,4 @@ header button {
 .sell-btn {
   color: white;
   background-color: #2cb1ba;
-}
-
-.logout-btn {
-  color: white;
-  background-color: #c2175b;
 }

@@ -1,23 +1,41 @@
 import "../Signup/Signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import du package js-cookie :
 import Cookies from "js-cookie";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
-const Signup = () => {
+const Signup = ({ setIsConnected }) => {
+  // Declaration de variable pour l'utilisation de la fonction usenavigate
+  const navigate = useNavigate();
+
   //declarer des states pour l'utlisation de formulaires
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  //fonction pour ne pas repeter event.target.value das les set du onClick
+  const handleChange = (event, setState) => {
+    setState(event.target.value);
+  };
+
+  //on cree une fonction qui quand lutilisateur clique pour creer verifier quil y a un token
 
   const handleSubmit = async (event) => {
     //empeche le navigateur de raffraichir et effacer les données
     event.preventDefault();
 
+    // envoyer les données à l'API pour obtenir un token (qui confirmera qu'on est bien authentifié)
+    // vérifie que les valeurs sont les bonnes :
+    console.log(username, email, password, newsletter);
+    console.log("Inscription réussie !");
+    // déclarer une variable pour récupérer la réponse
+    // mettre le await pour attendre que la promise soit résolue
+    // donc mettre handleSubmit en fonction async
+    // Utilisation de try/catch
     try {
-      //on envoi a axios une requete en post pour creer un profil utilisateur
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         {
@@ -27,68 +45,91 @@ const Signup = () => {
           newsletter: newsletter,
         },
       );
-      // pour creer un cookie un utilise "set" avec nom,valeur et on peut lui ajouter une expiration (en j)
-      Cookies.set("token", response.data.token, { expires: 7 });
-      //   console.log(Cookies.set("token", response.data.token, { expires: 7 }));
+      console.log(response.data); // {_id: '69b3e92f364b59bece8bd152', email: 'wam2@gmail.com', token: '4ZKF3wwODYbE-x3MsZhD5sUrWzhHhJYF5WZQWiEA07QulERxEREaRYkJX1tkG5bN', account: {…}}
+      // si ya un token dans la réponse:
+      if (response.data.token) {
+        setErrorMessage("");
+        // on le stockera dans les cookies
+        Cookies.set("userToken", response.data.token);
+        // on change le state de connection (pour l'affichage dans le header) :
+        setIsConnected(true);
 
-      console.log("Signup réussi !");
+        // on redirige maintenant notre utilisateur vers la page home :
+        navigate("/");
+      }
+      // sinon, on mettra une alerte
     } catch (error) {
-      console.log(error.response);
+      if (error.response) {
+        setErrorMessage(error.response.data.message);
+      } else {
+        console.log(error);
+      }
     }
   };
 
   return (
     <main>
-      <section className="signup-page">
-        <h1>S'inscrire</h1>
+      <div className="container">
+        <section className="signup-page">
+          <h2>S'inscrire</h2>
 
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Nom d'utilisateur"
-            value={username}
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-          />
-
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-
-          <input
-            type="password"
-            placeholder="Mot de passe"
-            value={password}
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-          />
-          <label htmlFor="">
+          <form onSubmit={handleSubmit}>
             <input
-              type="checkbox"
-              name="newsletter"
+              type="text"
+              placeholder="Nom d'utilisateur"
+              value={username}
               onChange={(event) => {
-                setNewsletter(event.target.checked);
+                handleChange(event, setUsername);
               }}
             />
-            S'inscrire à notre newsletter
-          </label>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(event) => {
+                handleChange(event, setEmail);
+              }}
+            />
+            <input
+              type="password"
+              placeholder="Mot de passe"
+              value={password}
+              onChange={(event) => {
+                handleChange(event, setPassword);
+              }}
+            />
+            <div className="newsletter-check-conditions">
+              <label>
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  name="newsletter"
+                  checked={newsletter}
+                  onChange={(event) => {
+                    setNewsletter(event.target.checked);
+                  }}
+                />
+                S'inscrire à notre newsletter
+              </label>
 
-          <button className="submit-btn" type="submit">
-            S'inscrire
-          </button>
+              <p className="legal-conditions">
+                En m'inscrivant je confirme avoir lu et accepté les Termes &
+                Conditions et Politique de Confidentialité de Vinted. Je
+                confirme avoir au moins 18 ans.
+              </p>
+            </div>
+            {/* Au clic envoi l'utilisateur connecté sur la page home */}
+            <button className="submit-btn" type="submit">
+              S'inscrire
+            </button>
 
-          <Link to="/Login">
-            <p>Tu as déjà un compte ? Connecte-toi !</p>
-          </Link>
-        </form>
-      </section>
+            <Link className="redirection" to="/Login">
+              <p>Tu as déjà un compte ? Connecte-toi !</p>
+            </Link>
+            {errorMessage && <p className="error">{errorMessage}</p>}
+          </form>
+        </section>
+      </div>
     </main>
   );
 };

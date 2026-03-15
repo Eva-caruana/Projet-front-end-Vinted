@@ -37,7 +37,7 @@
   color: #999999;
 }
 
-.offer-details {
+.offer-top-details {
   display: flex;
   flex-direction: column;
   gap: 10px;

@@ -28,7 +28,7 @@ const Offer = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <main className="main-offer-page">
@@ -46,10 +46,12 @@ const Offer = () => {
             </div>
             <aside className="offer-bloc">
               <p className="offer-price">{data.product_price} €</p>
-              <div className="offer-details">
+              <div className="offer-top-details">
+                {/* Boucle pour faire apparaitre les pdts et leur clé */}
                 {data.product_details.map((detail, index) => {
                   return (
                     <div className="detail-lines" key={index}>
+                      {/* si les elements ont une clé on l'affiche avec les details  */}
                       {detail.MARQUE && (
                         <span>
                           <p className="detail-key">MARQUE</p>

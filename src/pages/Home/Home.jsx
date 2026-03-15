@@ -5,19 +5,17 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const Home = ({ data }) => {
-  // le composant Link sert à naviguer de page en page en modifiant l'URL sans rafraichir le navigateur
-  // les balises seront donc maintenant réservées :
-  //  - à diriger vers une ancre (id) de la meme page
-  //  - à re-diriger vers un site externe
-
   return (
     <main>
       <section className="hero">
         <img src={hero} alt="women-with-clothes-image" />
         <div className="container">
-          <div className="hero-bloc">
+          <div className="hero-text-bloc">
             <h1>Prêts à faire du tri dans vos placards ?</h1>
-            <button>Commencer à vendre</button>
+            {/* Lier à la page login */}
+            <Link to="/login">
+              <button>Commencer à vendre</button>
+            </Link>
           </div>
         </div>
       </section>
