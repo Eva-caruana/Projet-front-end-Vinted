@@ -1,7 +1,7 @@
 /* ----------------HEADER---------------- */
 
 header {
-  height: 60px;
+  height: 90px;
   padding: 10px;
 }
 header input {
@@ -75,4 +75,24 @@ header button {
 .sell-btn {
   color: white;
   background-color: #2cb1ba;
+}
+
+/* filters */
+header .search-filters-section {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+header .price-filters {
+  display: flex;
+  gap: 10px;
+}
+header .price-filters input {
+  width: 80px;
+}
+
+.input-label {
+  font-size: 15px;
 }

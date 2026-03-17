@@ -31,10 +31,13 @@ const Home = ({ data }) => {
                 <article className="offer-article">
                   <div>
                     <div className="owner-info">
-                      <img
-                        src={offer.owner.account.avatar.secure_url}
-                        alt="owner-picture"
-                      />
+                      {/* Afficher l'avatar seulement si cela existe */}
+                      {offer.owner.account.avatar && (
+                        <img
+                          src={offer.owner.account.avatar.secure_url}
+                          alt="owner-picture"
+                        />
+                      )}
                       <p>{offer.owner.account.username}</p>
                     </div>
                     <div className="homepage-offer-info">

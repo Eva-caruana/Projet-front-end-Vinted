@@ -1,0 +1,15 @@
+.publish-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.file-selection {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-input-section {
+  display: flex;
+  flex-direction: column;
+}

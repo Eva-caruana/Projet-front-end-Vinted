@@ -7,14 +7,18 @@ import Home from "./pages/Home/Home";
 import Offer from "./pages/Offer/Offer";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
+import Publish from "./pages/Publish/Publish";
 
 //declaration de fonction avec states
 function App() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isConnected, setIsConnected] = useState(false);
+  const [priceMin, setPriceMin] = useState(0);
+  const [priceMax, setPriceMax] = useState(0);
+  const [title, setTitle] = useState("");
 
-  // Lier le fait detre connecté avec un token, si un token existe=connexion, si on veut la connexion=suppression du token
+  // Lier le fait detre connecté avec un token, si un token existe=connexion, si on veut la deconnexion=suppression du token
   const handleToken = (token) => {
     if (token) {
       Cookies.set("userToken", token);
@@ -49,7 +53,16 @@ function App() {
   ) : (
     <>
       <Router>
-        <Header handleToken={handleToken} setIsConnected={setIsConnected} />
+        <Header
+          handleToken={handleToken}
+          setIsConnected={setIsConnected}
+          priceMin={priceMin}
+          priceMax={priceMax}
+          setPriceMin={setPriceMin}
+          setPriceMax={setPriceMax}
+          title={title}
+          setTitle={setTitle}
+        />
         <Routes>
           <Route path="/" element={<Home data={data} />} />
           <Route path="/offer/:id" element={<Offer />} />
@@ -73,6 +86,7 @@ function App() {
               />
             }
           />
+          <Route path="/publish" element={<Publish />} />
           <Route
             path="*"
             element={

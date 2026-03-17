@@ -1,11 +1,24 @@
-import { Link } from "react-router-dom";
+// Importer aussi UseLocation
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import "../Header/Header.css";
 import Cookies from "js-cookie";
 //icones react
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
-const Header = ({ setIsConnected }) => {
+const Header = ({
+  setIsConnected,
+  priceMin,
+  priceMax,
+  setPriceMin,
+  setPriceMax,
+  title,
+  setTitle,
+}) => {
+  // On met location dans une variable pour pouvoir utiliser useLocation()
+  const location = useLocation(); //NE PAS OUBLIER DE DIMPORTER useLocation
+  // console.log("ici =>", location); // {pathname: '/'}
+
   // on met le token dans une variable
   const userToken = Cookies.get("userToken");
   return (
@@ -15,14 +28,51 @@ const Header = ({ setIsConnected }) => {
           <Link to="/">
             <img className="header-logo" src={logo} alt="logo vinted" />
           </Link>
-          <div className="search">
-            <FaMagnifyingGlass className="search-icon" />
-            <input
-              className="search-input"
-              type="text"
-              name="text"
-              placeholder="Recherche des articles"
-            />
+          <div className="search-filters-section">
+            <div className="search">
+              <FaMagnifyingGlass className="search-icon" />
+              <input
+                className="search-input"
+                type="text"
+                name="text"
+                value={title}
+                placeholder="Recherche des articles"
+                onChange={(event) => {
+                  setTitle(event.target.value);
+                }}
+              />
+            </div>
+            {/* les filtres  */}
+            {/* Si l'utilisateur est sur la page home afficher les filtres sinon ne pas les afficher  */}
+            {location.pathname === "/" ? (
+              <div className="price-filters">
+                <label className="input-label">
+                  Prix min:{" "}
+                  <input
+                    type="number"
+                    name="priceMin"
+                    id="priceMin"
+                    value={priceMin}
+                    onChange={(event) => {
+                      setPriceMin(event.target.value);
+                    }}
+                  />
+                </label>
+
+                <label className="input-label">
+                  Prix max:
+                  <input
+                    type="number"
+                    name="priceMax"
+                    id="priceMax"
+                    value={priceMax}
+                    onChange={(event) => {
+                      setPriceMax(event.target.value);
+                    }}
+                  />
+                </label>
+              </div>
+            ) : null}
           </div>
           <nav className="right-side-header">
             <div className="header-connection-butns">
@@ -51,7 +101,9 @@ const Header = ({ setIsConnected }) => {
                 </div>
               )}
             </div>
-            <button className="sell-btn">Vends tes articles</button>
+            <Link to="/publish">
+              <button className="sell-btn">Vends tes articles</button>
+            </Link>
           </nav>
         </section>
       </div>
