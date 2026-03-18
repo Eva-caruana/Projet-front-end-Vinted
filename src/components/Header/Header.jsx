@@ -14,9 +14,10 @@ const Header = ({
   setPriceMax,
   title,
   setTitle,
+  isConnected,
 }) => {
   // On met location dans une variable pour pouvoir utiliser useLocation()
-  const location = useLocation(); //NE PAS OUBLIER DE DIMPORTER useLocation
+  const location = useLocation(); //NE PAS OUBLIER DIMPORTER useLocation
   // console.log("ici =>", location); // {pathname: '/'}
 
   // on met le token dans une variable
@@ -77,7 +78,7 @@ const Header = ({
           <nav className="right-side-header">
             <div className="header-connection-butns">
               {/* S'il y a des cookies donc si connecté = se deconnecter et si pas de cookies = pas connecté = s'incrire ou se deconnecter */}
-              {userToken ? (
+              {isConnected ? (
                 <div>
                   <button
                     className="deconnection-btn"

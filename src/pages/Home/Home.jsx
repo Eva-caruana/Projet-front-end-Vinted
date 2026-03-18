@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import hero from "../../assets/img/hero.jpg";
 import "../Home/Home.css";
-import axios from "axios";
-import { useState, useEffect } from "react";
 
 const Home = ({ data }) => {
   return (

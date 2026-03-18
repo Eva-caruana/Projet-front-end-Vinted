@@ -65,12 +65,12 @@ const Publish = () => {
     }
   };
   return (
-    <main>
+    <main className="publish-page">
       {/* //Si l'tutilisateur n'est pas connecté le rediriger vers la page connexion d'abord puis retourner sur la page pusblish */}
       {token ? (
         <div className="container">
           <h2>Vends ton article</h2>
-          <form className=" publish-form" onSubmit={handleSubmit}>
+          <form className="publish-form" onSubmit={handleSubmit}>
             <div className="file-selection">
               {previewPicture && (
                 <img
@@ -79,7 +79,10 @@ const Publish = () => {
                   alt="previsualisation de l'image"
                 />
               )}
-              <label htmlFor="picture"> + Ajoute une photo</label>
+              <label htmlFor="picture" className="file-label">
+                {" "}
+                + Ajoute une photo
+              </label>
               {/* MASQUER L'INPUT (AVEC CSS) ET AFFICHER LE LABEL A LA PLACE */}
               <input
                 type="file"

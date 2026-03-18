@@ -1,9 +1,26 @@
+.publish-page {
+  background-color: #ebedee;
+}
+
 .publish-form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
+.publish-page input[type="file"] {
+  display: none;
+}
+
+.publish-page form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+}
+
+/* 
 .file-selection {
   display: flex;
   flex-direction: column;
@@ -16,4 +33,4 @@
 
 .preview-picture {
   width: 300px;
-}
+} */

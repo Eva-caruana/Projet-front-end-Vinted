@@ -2,18 +2,25 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Offer from "./pages/Offer/Offer";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import Publish from "./pages/Publish/Publish";
+import Payment from "./pages/Payment/Payment";
 
 //declaration de fonction avec states
 function App() {
+  //Pour eviter le bug sur se deconnecter (pour que ce soit clicable lorsque is connected =null)
+  const [isConnected, setIsConnected] = useState(
+    Cookies.get("userToken") || null,
+  );
+
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isConnected, setIsConnected] = useState(false);
+
   const [priceMin, setPriceMin] = useState(0);
   const [priceMax, setPriceMax] = useState(0);
   const [title, setTitle] = useState("");
@@ -87,6 +94,7 @@ function App() {
             }
           />
           <Route path="/publish" element={<Publish />} />
+          <Route path="/payment" element={<Payment />} />
           <Route
             path="*"
             element={

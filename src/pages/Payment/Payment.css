@@ -1,0 +1,38 @@
+.payment-page {
+  background-color: #ebedee;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  height: calc(100vh - 120px);
+}
+
+.payment-page section {
+  width: 800px;
+  background-color: white;
+  padding: 30px;
+}
+
+.price-recap:first-child {
+  border-bottom: 1px solid lightgrey;
+}
+
+.payment h2 {
+  margin-bottom: 40px;
+  font-size: 12px;
+}
+
+.payment-page section > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.order-recap span {
+  font-weight: bold;
+}
+
+.payment-page .payment-section {
+  margin-bottom: 20px;
+  text-align: justify;
+}
