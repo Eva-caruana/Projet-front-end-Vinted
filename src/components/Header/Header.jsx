@@ -14,7 +14,7 @@ const Header = ({
   setPriceMax,
   title,
   setTitle,
-  isConnected,
+  isConnected, //si ajout beug du bouton, pq ?
 }) => {
   // On met location dans une variable pour pouvoir utiliser useLocation()
   const location = useLocation(); //NE PAS OUBLIER DIMPORTER useLocation
@@ -78,7 +78,8 @@ const Header = ({
           <nav className="right-side-header">
             <div className="header-connection-butns">
               {/* S'il y a des cookies donc si connecté = se deconnecter et si pas de cookies = pas connecté = s'incrire ou se deconnecter */}
-              {isConnected ? (
+
+              {userToken ? ( //POURQUOI MOI BEUG ICI SI JE MET ISCONNECTED?
                 <div>
                   <button
                     className="deconnection-btn"

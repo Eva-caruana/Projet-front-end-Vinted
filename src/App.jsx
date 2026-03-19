@@ -20,7 +20,6 @@ function App() {
 
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
   const [priceMin, setPriceMin] = useState(0);
   const [priceMax, setPriceMax] = useState(0);
   const [title, setTitle] = useState("");
@@ -71,7 +70,12 @@ function App() {
           setTitle={setTitle}
         />
         <Routes>
-          <Route path="/" element={<Home data={data} />} />
+          <Route
+            path="/"
+            element={
+              <Home title={title} priceMin={priceMin} priceMax={priceMax} />
+            }
+          />
           <Route path="/offer/:id" element={<Offer />} />
           <Route
             path="/signup"

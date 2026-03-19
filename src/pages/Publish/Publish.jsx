@@ -72,6 +72,7 @@ const Publish = () => {
           <h2>Vends ton article</h2>
           <form className="publish-form" onSubmit={handleSubmit}>
             <div className="file-selection">
+              {/* si on a une image on affiche la preview */}
               {previewPicture && (
                 <img
                   className="preview-picture"
@@ -79,10 +80,12 @@ const Publish = () => {
                   alt="previsualisation de l'image"
                 />
               )}
-              <label htmlFor="picture" className="file-label">
-                {" "}
-                + Ajoute une photo
-              </label>
+              {/* si on a une preview on affiche pas le label */}
+              {!previewPicture && (
+                <label htmlFor="picture" className="file-label">
+                  + Ajoute une photo
+                </label>
+              )}
               {/* MASQUER L'INPUT (AVEC CSS) ET AFFICHER LE LABEL A LA PLACE */}
               <input
                 type="file"
@@ -164,7 +167,7 @@ const Publish = () => {
                 }}
               />
 
-              <label htmlFor="city">Couleur</label>
+              <label htmlFor="city">Ville</label>
               <input
                 type="text"
                 id="city"
@@ -187,7 +190,8 @@ const Publish = () => {
                   setPrice(event.target.value);
                 }}
               />
-              <label>
+
+              <label className="exchanges">
                 <input
                   className="checkbox"
                   type="checkbox"
@@ -200,7 +204,7 @@ const Publish = () => {
                 Je suis interressé-e par les échanges
               </label>
             </div>
-            <div className="submit-publish-btn">
+            <div className="submit-publish">
               <button>Ajouter</button>
             </div>
           </form>
