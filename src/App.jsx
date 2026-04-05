@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Header from "./components/Header/Header";
@@ -73,7 +73,12 @@ function App() {
           <Route
             path="/"
             element={
-              <Home title={title} priceMin={priceMin} priceMax={priceMax} />
+              <Home
+                title={title}
+                priceMin={priceMin}
+                priceMax={priceMax}
+                handleToken={handleToken}
+              />
             }
           />
           <Route path="/offer/:id" element={<Offer />} />

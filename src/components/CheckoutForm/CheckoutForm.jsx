@@ -93,7 +93,11 @@ const CheckoutForm = ({ title, price }) => {
     <form onSubmit={handleSubmit}>
       <PaymentElement />
       {/* si connection stripes, si onfos si ça charge tjr */}
-      <button type="submit" disabled={!stripe || !elements || isLoading}>
+      <button
+        className="submit-payment-btn"
+        type="submit"
+        disabled={!stripe || !elements || isLoading}
+      >
         Pay
       </button>
       {/* Éventuel message d'erreur */}

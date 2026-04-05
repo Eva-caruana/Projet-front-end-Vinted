@@ -56,6 +56,10 @@ h1 {
   /* background-color: #2cb1ba; */
 }
 
+.offer-article:hover {
+  cursor: pointer;
+}
+
 .owner-info {
   display: flex;
   align-items: center;

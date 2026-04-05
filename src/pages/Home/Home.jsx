@@ -4,7 +4,7 @@ import "../Home/Home.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Home = ({ title, priceMin, priceMax }) => {
+const Home = ({ title, priceMin, priceMax, handleToken }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -60,9 +60,15 @@ const Home = ({ title, priceMin, priceMax }) => {
               <div className="hero-text-bloc">
                 <h1>Prêts à faire du tri dans vos placards ?</h1>
                 {/* Lier à la page login */}
-                <Link to="/login">
-                  <button>Commencer à vendre</button>
-                </Link>
+                {handleToken ? (
+                  <Link to="/publish">
+                    <button>Commencer à vendre</button>
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    <button>Commencer à vendre</button>
+                  </Link>
+                )}
               </div>
             </div>
           </section>

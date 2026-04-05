@@ -1,7 +1,7 @@
 import "./Payment.css";
 import Cookies from "js-cookie";
 
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 //Pour le paiment
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";

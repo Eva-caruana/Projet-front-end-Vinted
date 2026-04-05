@@ -1,7 +1,6 @@
 /* ----------------HEADER---------------- */
 
 header {
-  height: 90px;
   padding: 10px;
 }
 header input {
@@ -95,4 +94,101 @@ header .price-filters input {
 
 .input-label {
   font-size: 15px;
+}
+
+/* =================== RESPONSIVE ===================== */
+
+@media (max-width: 1024px) {
+  .header-section {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  header .search-filters-section {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .right-side-header {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-logo {
+    align-self: flex-start;
+  }
+
+  header .search-filters-section {
+    width: 100%;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .right-side-header {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .login-signup-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .login-signup-btn button,
+  .sell-btn,
+  .deconnection-btn {
+    width: 100%;
+  }
+
+  header .price-filters {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px 15px;
+  }
+
+  .search-input {
+    height: 38px;
+    font-size: 14px;
+  }
+
+  header .price-filters {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header .price-filters input {
+    width: 100%;
+  }
+
+  .input-label {
+    font-size: 14px;
+  }
+
+  header button {
+    width: 100%;
+  }
 }

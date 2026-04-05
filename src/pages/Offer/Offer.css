@@ -95,3 +95,7 @@
   margin-top: 30px;
   width: 100%;
 }
+
+.buy-btn:hover {
+  cursor: pointer;
+}

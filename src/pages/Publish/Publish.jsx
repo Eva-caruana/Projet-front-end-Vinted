@@ -20,12 +20,19 @@ const Publish = () => {
   const [price, setPrice] = useState("");
   const [exchanges, setExchanges] = useState("");
   const [previewPicture, setPreviewPicture] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const token = Cookies.get("userToken");
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // d'empecher le rafraichissement de la poage à la soumission du formulaire
-    console.log(title, file);
+    // console.log(title, file);
+
+    //Ne pas envoyer si ces champs ne sont pas remplis
+    if (!file || !title || !price) {
+      setErrorMessage("Photo, titre et prix sont obligatoires");
+      return;
+    }
 
     const formData = new FormData(); // création d'un form-data !
     // pour remplir le form-data, il faudra utiliser les méthodes associées aux form-data :
@@ -41,7 +48,7 @@ const Publish = () => {
 
     // afficher les key/value pairs :
     for (const pair of formData.entries()) {
-      console.log("key =>" + pair[0] + "///  value =>" + pair[1]);
+      // console.log("key =>" + pair[0] + "///  value =>" + pair[1]);
     }
     try {
       const response = await axios.post(
@@ -56,6 +63,7 @@ const Publish = () => {
           },
         },
       );
+
       // pour savoir si cest ok ou non
       console.log(response.data);
       navigate("/");
@@ -190,21 +198,25 @@ const Publish = () => {
                   setPrice(event.target.value);
                 }}
               />
-
-              <label className="exchanges">
-                <input
-                  className="checkbox"
-                  type="checkbox"
-                  name="exchanges"
-                  checked={exchanges}
-                  onChange={(event) => {
-                    setExchanges(event.target.checked);
-                  }}
-                />
-                Je suis interressé-e par les échanges
-              </label>
             </div>
             <div className="submit-publish">
+              <div className="publish-left">
+                <label className="exchanges">
+                  <input
+                    className="checkbox"
+                    type="checkbox"
+                    name="exchanges"
+                    checked={exchanges}
+                    onChange={(event) => {
+                      setExchanges(event.target.checked);
+                    }}
+                  />
+                  Je suis interressé-e par les échanges
+                </label>{" "}
+              </div>
+            </div>
+            <div className="submit-publish">
+              {errorMessage && <p className="publish-error">{errorMessage}</p>}
               <button>Ajouter</button>
             </div>
           </form>
