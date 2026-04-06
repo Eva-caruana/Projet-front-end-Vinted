@@ -1,4 +1,10 @@
-.submit-payment-btn {
+.checkout-btns {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.submit-payment-button {
   border: none;
   border-radius: 6px;
   background-color: #09b1ba;
@@ -7,8 +13,9 @@
   font-weight: 600;
   cursor: pointer;
   padding: 12px 28px;
+  margin-top: 20px;
 }
 
-.submit-payment-btn:hover {
+.submit-payment-button:hover {
   background-color: #0899a1;
 }

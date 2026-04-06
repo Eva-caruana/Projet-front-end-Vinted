@@ -76,7 +76,7 @@ const Payment = () => {
       </section>
     </main>
   ) : (
-    // Si un utilisateur nest pas connecté et qu'il veut acheter larticle ça va le
+    // Si un utilisateur nest pas connecté et qu'il veut acheter larticle va le
     // renvoyer sur la page login puis offers pour pouvoir recuperer les clefs name&price
     <Navigate to="/login" state={{ from: "/offers/" + id }} />
   );

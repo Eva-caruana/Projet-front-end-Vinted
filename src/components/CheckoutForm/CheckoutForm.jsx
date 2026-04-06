@@ -1,4 +1,5 @@
 // Hook de stripe
+import "./CheckoutForm.css";
 import {
   PaymentElement,
   useStripe,
@@ -73,8 +74,7 @@ const CheckoutForm = ({ title, price }) => {
         setErrorMessage(stripeResponse.error.message);
       }
 
-      //check la reponse
-      console.log("stripeResponse=>>>>", stripeResponse);
+      // console.log("stripeResponse=>>>>", stripeResponse);
 
       // Si on reçois un status succeeded on fais passer completed à true
       if (stripeResponse.paymentIntent.status === "succeeded") {
@@ -92,16 +92,17 @@ const CheckoutForm = ({ title, price }) => {
   ) : (
     <form onSubmit={handleSubmit}>
       <PaymentElement />
-      {/* si connection stripes, si onfos si ça charge tjr */}
-      <button
-        className="submit-payment-btn"
-        type="submit"
-        disabled={!stripe || !elements || isLoading}
-      >
-        Pay
-      </button>
-      {/* Éventuel message d'erreur */}
-      {errorMessage && <div className="error">{errorMessage}</div>}
+
+      <div className="checkout-btns">
+        {errorMessage && <div className="error">{errorMessage}</div>}
+        <button
+          className="submit-payment-button"
+          type="submit"
+          disabled={!stripe || !elements || isLoading}
+        >
+          Pay
+        </button>
+      </div>
     </form>
   );
 };
