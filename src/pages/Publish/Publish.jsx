@@ -34,7 +34,7 @@ const Publish = () => {
       return;
     }
 
-    const formData = new FormData(); // création d'un form-data !
+    const formData = new FormData();
     // pour remplir le form-data, il faudra utiliser les méthodes associées aux form-data :
     formData.append("picture", file);
     formData.append("title", title);

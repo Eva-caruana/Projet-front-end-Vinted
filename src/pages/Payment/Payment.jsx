@@ -2,12 +2,12 @@ import "./Payment.css";
 import Cookies from "js-cookie";
 
 import { Navigate, useLocation } from "react-router-dom";
-//Pour le paiment
+//Pour le paiement
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../../components/CheckoutForm/CheckoutForm";
 
-// Cette ligne permet de vous connecter à votre compte Stripe en fournissant votre clef publique
+// connexion au compte Stripe en fournissant la clef publique
 const stripePromise = loadStripe(
   "pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP",
 );
@@ -31,11 +31,6 @@ const Payment = () => {
 
     // Devise de la transaction
     currency: "eur",
-
-    // On peut customiser l'apparence ici
-    appearance: {
-      /*...*/
-    },
   };
 
   //securiser le code en ajoutant une ternaire
@@ -49,7 +44,7 @@ const Payment = () => {
         </div>
         <div className="fees">
           <span>Frais de protection acheteurs</span>
-          <span>{(0.8).toFixed(2)}€</span>
+          <span>{(0.4).toFixed(2)}€</span>
         </div>
         <div>
           <span>Frais de port</span>
@@ -63,9 +58,9 @@ const Payment = () => {
         </div>
         <div className="order-recap">
           <p>
-            Il ne vous reste plus qu'une étape pour vous offrir{" "}
-            <span>{title}</span>. Vous allez payer {(price + 1.2).toFixed(2)} €
-            (frais de protection et frais de port inclus).
+            Récapitulatif de votre commande <span>{title}</span>, pour un
+            montant total de {(price + 1.2).toFixed(2)} € (frais de protection
+            et frais de port inclus).
           </p>
         </div>
       </section>

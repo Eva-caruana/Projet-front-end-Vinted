@@ -5,8 +5,6 @@ import axios from "axios";
 import "../Offer/Offer.css";
 
 const Offer = () => {
-  // destructuring
-  // const { id } = useParams();
   const params = useParams();
   const id = params.id;
   // console.log("ici le log", params);

@@ -47,7 +47,7 @@ const Signup = ({ setIsConnected }) => {
         },
       );
       console.log(response.data); // {_id: '69b3e92f364b59bece8bd152', email: 'wam2@gmail.com', token: '4ZKF3wwODYbE-x3MsZhD5sUrWzhHhJYF5WZQWiEA07QulERxEREaRYkJX1tkG5bN', account: {…}}
-      // si ya un token dans la réponse:
+      // si il y a un token dans la réponse:
       if (response.data.token) {
         setErrorMessage("");
         // on le stockera dans les cookies

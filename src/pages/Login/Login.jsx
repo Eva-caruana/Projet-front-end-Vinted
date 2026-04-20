@@ -69,7 +69,7 @@ const Login = ({ setIsConnected }) => {
                 setPassword(event.target.value);
               }}
             />
-            {/* Au clic envoyer l'utilisateut connecté sur la page home */}
+            {/* Au clic envoyer l'utilisateur connecté sur la page home */}
 
             <button className="connect-btn" type="submit">
               Se connecter

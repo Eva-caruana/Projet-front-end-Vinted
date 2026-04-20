@@ -1,6 +1,6 @@
 .checkout-btns {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -14,8 +14,31 @@
   cursor: pointer;
   padding: 12px 28px;
   margin-top: 20px;
+  width: 100%;
 }
 
 .submit-payment-button:hover {
   background-color: #0899a1;
+}
+.post-payment-elements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.completed-payment {
+  font-size: 25px;
+}
+
+.redirect-button {
+  border: none;
+  border-radius: 6px;
+  background-color: #09b1ba;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px 28px;
+  margin-top: 20px;
+  width: 100%;
 }

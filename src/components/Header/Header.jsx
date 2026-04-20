@@ -17,7 +17,7 @@ const Header = ({
   isConnected, //si ajout beug du bouton, pq ?
 }) => {
   // On met location dans une variable pour pouvoir utiliser useLocation()
-  const location = useLocation(); //NE PAS OUBLIER DIMPORTER useLocation
+  const location = useLocation();
   // console.log("ici =>", location); // {pathname: '/'}
 
   // on met le token dans une variable

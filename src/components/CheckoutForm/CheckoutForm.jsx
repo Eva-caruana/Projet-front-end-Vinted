@@ -6,6 +6,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const CheckoutForm = ({ title, price }) => {
@@ -84,7 +85,13 @@ const CheckoutForm = ({ title, price }) => {
   };
 
   return completed ? (
-    <p>Paiement effectué</p>
+    <div className="post-payment-elements">
+      <p className="completed-payment">Paiement effectué !</p>
+      <Link to="/">
+        {" "}
+        <button className="redirect-button">Poursuivre vos achats</button>{" "}
+      </Link>
+    </div>
   ) : (
     <form onSubmit={handleSubmit}>
       <PaymentElement />
