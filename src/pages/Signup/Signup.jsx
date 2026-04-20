@@ -29,8 +29,9 @@ const Signup = ({ setIsConnected }) => {
 
     // envoyer les données à l'API pour obtenir un token (qui confirmera qu'on est bien authentifié)
     // vérifie que les valeurs sont les bonnes :
-    console.log(username, email, password, newsletter);
-    console.log("Inscription réussie !");
+    // console.log(username, email, password, newsletter);
+    // console.log("Inscription réussie !");
+
     // déclarer une variable pour récupérer la réponse
     // mettre le await pour attendre que la promise soit résolue
     // donc mettre handleSubmit en fonction async

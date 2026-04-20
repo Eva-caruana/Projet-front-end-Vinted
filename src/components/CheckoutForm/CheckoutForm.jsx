@@ -14,14 +14,12 @@ const CheckoutForm = ({ title, price }) => {
   // Permet de récupérer le contenu des inputs
   const elements = useElements();
 
-  // State qui gère les messages d'erreurs
+  // gère les messages d'erreurs
   const [errorMessage, setErrorMessage] = useState(null);
-  // State qui gère le fait que le paiement a été effectué
+  //le paiement a été effectué
   const [completed, setCompleted] = useState(false);
-  // State qui gère le fait qu'on est en train de payer
+  // Loading paiment
   const [isLoading, setIsLoading] = useState(false);
-
-  //ici mettre condition paiment reussi
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -40,8 +38,6 @@ const CheckoutForm = ({ title, price }) => {
       setErrorMessage(submitError.message);
       return;
     }
-    // console.log("title =", title);
-    // console.log("price =", price);
 
     try {
       // Demande au backend de créer l'intention de paiement avec les clés/valeurs, le clientSecret

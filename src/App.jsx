@@ -11,7 +11,6 @@ import Login from "./pages/Login/Login";
 import Publish from "./pages/Publish/Publish";
 import Payment from "./pages/Payment/Payment";
 
-//declaration de fonction avec states
 function App() {
   //Pour eviter le bug sur se deconnecter (pour que ce soit clicable lorsque is connected =null)
   const [isConnected, setIsConnected] = useState(
