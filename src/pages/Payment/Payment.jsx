@@ -17,7 +17,7 @@ const Payment = () => {
   const location = useLocation();
   //   console.log("location.state =", location.state.price, location.state.title );
   const state = location.state;
-  //   console.log("ici le log =>", location.state); {title: 'Vestido', price: 25}
+
   //on destructure
   const { title, price } = state;
   //on recupere le cookie

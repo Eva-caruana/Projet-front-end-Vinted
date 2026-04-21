@@ -71,8 +71,6 @@ const CheckoutForm = ({ title, price }) => {
         setErrorMessage(stripeResponse.error.message);
       }
 
-      // console.log("stripeResponse=>>>>", stripeResponse);
-
       // Si on reçois un status succeeded on fais passer completed à true
       if (stripeResponse.paymentIntent.status === "succeeded") {
         setCompleted(true);

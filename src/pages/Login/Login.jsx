@@ -17,9 +17,6 @@ const Login = ({ setIsConnected }) => {
     //Sur le formulaire, empeche le navigateur de raffraichir et effacer les données
     event.preventDefault();
 
-    console.log("email =>", email);
-    console.log("password =>", password);
-
     try {
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/login",
@@ -28,7 +25,7 @@ const Login = ({ setIsConnected }) => {
           password: password,
         },
       );
-      console.log(response.data);
+
       if (response.data.token) {
         Cookies.set("userToken", response.data.token);
         // on change le state de connection (pour l'affichage dans le header) :

@@ -14,11 +14,10 @@ const Header = ({
   setPriceMax,
   title,
   setTitle,
-  isConnected, //si ajout beug du bouton, pq ?
+  isConnected,
 }) => {
   // On met location dans une variable pour pouvoir utiliser useLocation()
   const location = useLocation();
-  // console.log("ici =>", location); // {pathname: '/'}
 
   // on met le token dans une variable
   const userToken = Cookies.get("userToken");
@@ -79,7 +78,7 @@ const Header = ({
             <div className="header-connection-butns">
               {/* S'il y a des cookies donc si connecté = se deconnecter et si pas de cookies = pas connecté = s'incrire ou se deconnecter */}
 
-              {userToken ? ( //POURQUOI MOI BEUG ICI SI JE MET ISCONNECTED?
+              {isConnected ? (
                 <div>
                   <button
                     className="deconnection-btn"

@@ -18,19 +18,23 @@ const Publish = () => {
   const [color, setColor] = useState("");
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
-  const [exchanges, setExchanges] = useState("");
+  const [exchanges, setExchanges] = useState(false);
   const [previewPicture, setPreviewPicture] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
 
   const token = Cookies.get("userToken");
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // d'empecher le rafraichissement de la poage à la soumission du formulaire
-    // console.log(title, file);
+    event.preventDefault(); // d'empecher le rafraichissement de la page à la soumission du formulaire
 
     //Ne pas envoyer si ces champs ne sont pas remplis
     if (!file || !title || !price) {
       setErrorMessage("Photo, titre et prix sont obligatoires");
+      return;
+    }
+    //Ne pas envoyer le prix est invalide
+    if (isNaN(Number(price)) || Number(price) <= 0) {
+      setErrorMessage("Merci de rentrer un prix valide");
       return;
     }
 
@@ -48,7 +52,6 @@ const Publish = () => {
 
     // afficher les key/value pairs :
     for (const pair of formData.entries()) {
-      // console.log("key =>" + pair[0] + "///  value =>" + pair[1]);
     }
     try {
       const response = await axios.post(
@@ -64,8 +67,6 @@ const Publish = () => {
         },
       );
 
-      // pour savoir si cest ok ou non
-      console.log(response.data);
       navigate("/");
     } catch (error) {
       // si la propriété existe continue sinon retourne undefined au lieu de planter
