@@ -1,0 +1,55 @@
+/* Default */
+.btn {
+  font-size: 12px;
+  width: 115px;
+  height: 30px;
+  border-radius: 7px;
+  cursor: pointer;
+  border: none;
+}
+
+/* Buttons types  */
+.btn--outlined {
+  color: #2cb1ba;
+  background-color: white;
+  border: 1px solid #2cb1ba;
+}
+
+.btn--filled {
+  color: white;
+  background-color: #2cb1ba;
+}
+
+.btn--danger {
+  color: white;
+  background-color: #c2175b;
+}
+
+/* btn width */
+.btn--auto {
+  width: 115px;
+}
+.btn--full {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Btn sizes  */
+.btn--large {
+  width: 185px;
+  height: 45px;
+  font-size: 16px;
+  margin: 32px 0 0;
+  padding: 0 14px;
+}
+
+.btn--medium {
+  font-size: 16px;
+  padding: 12px 28px;
+  height: auto;
+}
+
+/* Btn Hovers */
+.btn--filled:hover {
+  background-color: #0899a1;
+}

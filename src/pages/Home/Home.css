@@ -26,20 +26,6 @@ h1 {
   color: #000000;
 }
 
-/* BUTTON */
-.hero-text-bloc button {
-  font-size: 16px;
-  color: white;
-  background-color: #2cb1ba;
-  border: none;
-  width: 185px;
-  height: 45px;
-  border-radius: 7px;
-  margin: 32px 0 0;
-  padding: 0 14px;
-  cursor: pointer;
-}
-
 .homepage-articles {
   display: flex;
   justify-content: center;

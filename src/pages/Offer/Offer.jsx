@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../Offer/Offer.css";
+import Button from "../../components/Button/Button";
 
 const Offer = () => {
   const params = useParams();
@@ -110,7 +111,9 @@ const Offer = () => {
                     price: data.product_price,
                   }}
                 >
-                  <button className="buy-btn">Acheter</button>
+                  <Button variant="filled" size="medium" width="full">
+                    Acheter
+                  </Button>
                 </Link>
               </div>
             </aside>

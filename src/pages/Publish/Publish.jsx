@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
+import Button from "../../components/Button/Button";
 
 const Publish = () => {
   //  on assigne une variable a la fonction useNavigate pour pouvoir la reutiliser
@@ -218,7 +219,9 @@ const Publish = () => {
             </div>
             <div className="submit-publish">
               {errorMessage && <p className="publish-error">{errorMessage}</p>}
-              <button>Ajouter</button>
+              <Button variant="filled" size="medium" type="submit">
+                Ajouter
+              </Button>
             </div>
           </form>
         </div>

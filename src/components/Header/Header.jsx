@@ -2,6 +2,7 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import "../Header/Header.css";
+import Button from "../Button/Button";
 import Cookies from "js-cookie";
 //icones react
 import { FaMagnifyingGlass } from "react-icons/fa6";
@@ -80,30 +81,32 @@ const Header = ({
 
               {isConnected ? (
                 <div>
-                  <button
-                    className="deconnection-btn"
+                  {/*  Bouton Se déconnecter */}
+                  <Button
+                    variant="danger"
                     onClick={() => {
                       Cookies.remove("userToken");
                       setIsConnected(false);
                     }}
                   >
                     Se déconnecter
-                  </button>
+                  </Button>
                 </div>
               ) : (
+                // Boutons S'inscrire / Se connecter
                 <div className="login-signup-btn">
                   <Link to="/signup">
-                    <button>S'inscrire</button>
+                    <Button variant="outlined">S'inscrire</Button>
                   </Link>
-
                   <Link to="/login">
-                    <button>Se connecter</button>
+                    <Button variant="outlined">Se connecter</Button>
                   </Link>
                 </div>
               )}
             </div>
+            {/* Bouton Vends tes articles */}
             <Link to="/publish">
-              <button className="sell-btn">Vends tes articles</button>
+              <Button variant="filled">Vends tes articles</Button>
             </Link>
           </nav>
         </section>

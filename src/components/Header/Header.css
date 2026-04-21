@@ -40,47 +40,22 @@ header input {
   color: #999999;
 }
 
+/* buttons */
 .right-side-header {
   display: flex;
   align-items: center;
   gap: 70px;
 }
 
-header button {
-  font-size: 12px;
-  width: 115px;
-  height: 30px;
-  border: 1px #2cb1ba solid;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.deconnection-btn {
-  color: white;
-  background-color: #c2175b;
-  border: none;
-  cursor: pointer;
-}
-
 .login-signup-btn {
   display: flex;
   gap: 30px;
-  button {
-    color: #2cb1ba;
-    background-color: white;
-  }
-}
-
-.sell-btn {
-  color: white;
-  background-color: #2cb1ba;
 }
 
 /* filters */
 header .search-filters-section {
   display: flex;
   flex-direction: column;
-
   gap: 10px;
 }
 

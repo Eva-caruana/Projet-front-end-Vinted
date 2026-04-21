@@ -8,6 +8,7 @@ import {
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Button from "../Button/Button";
 
 const CheckoutForm = ({ title, price }) => {
   // Permet de faire une requête à Stripe pour confirmer le paiement
@@ -87,22 +88,26 @@ const CheckoutForm = ({ title, price }) => {
       <p className="completed-payment">Paiement effectué !</p>
       <Link to="/">
         {" "}
-        <button className="redirect-button">Poursuivre vos achats</button>{" "}
+        <Button variant="filled" size="medium" width="full">
+          Poursuivre vos achats
+        </Button>{" "}
       </Link>
     </div>
   ) : (
     <form onSubmit={handleSubmit}>
       <PaymentElement />
 
-      <div className="checkout-btns">
+      <div className="checkout-btn">
         {errorMessage && <div className="error">{errorMessage}</div>}
-        <button
-          className="submit-payment-button"
+        <Button
+          variant="filled"
+          size="medium"
+          width="full"
           type="submit"
           disabled={!stripe || !elements || isLoading}
         >
-          Pay
-        </button>
+          Finaliser mon paiement
+        </Button>
       </div>
     </form>
   );

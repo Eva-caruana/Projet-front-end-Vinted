@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "../../components/Button/Button";
 import hero from "../../assets/img/hero.jpg";
 import OfferCard from "../../components/OfferCard/OfferCard";
 import "../Home/Home.css";
@@ -62,7 +63,9 @@ const Home = ({ title, priceMin, priceMax, handleToken }) => {
                 <h1>Prêts à faire du tri dans vos placards ?</h1>
                 {/* Lier à la page publish */}
                 <Link to="/publish">
-                  <button>Commencer à vendre</button>
+                  <Button variant="filled" width="large">
+                    Commencer à vendre
+                  </Button>
                 </Link>
               </div>
             </div>

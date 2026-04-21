@@ -26,6 +26,7 @@
   padding: 40px;
   margin-top: 30px;
   margin-bottom: 30px;
+  box-sizing: border-box;
 }
 
 .offer-price {
@@ -56,8 +57,9 @@
 
 .offer-content {
   display: flex;
+  align-items: space-between;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   padding-top: 30px;
 }
 
@@ -84,18 +86,8 @@
   object-fit: cover;
 }
 
-.buy-btn {
-  height: 40px;
-  border: none;
-  border-radius: 5px;
-  background-color: #09b1ba;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 30px;
+.offer-content a {
+  margin-top: 20px;
+  display: block; /* ← le Link prend toute la largeur */
   width: 100%;
-}
-
-.buy-btn:hover {
-  cursor: pointer;
 }

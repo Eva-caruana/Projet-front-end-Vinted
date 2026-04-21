@@ -132,21 +132,6 @@
   gap: 15px;
 }
 
-.submit-publish button {
-  border: none;
-  border-radius: 6px;
-  background-color: #09b1ba;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 12px 28px;
-}
-
-.submit-publish button:hover {
-  background-color: #0899a1;
-}
-
 /* message erreur */
 .publish-error {
   color: red;

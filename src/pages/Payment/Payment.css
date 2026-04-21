@@ -10,7 +10,7 @@
 .payment-page section {
   width: 800px;
   background-color: white;
-  padding: 30px;
+  padding: 20px;
 }
 
 .price-recap:first-child {
@@ -35,4 +35,8 @@
 .payment-page .payment-section {
   margin-bottom: 20px;
   text-align: justify;
+}
+
+.payment-section .checkout-form {
+  width: 100%;
 }

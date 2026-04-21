@@ -19,7 +19,7 @@ const Payment = () => {
   const state = location.state;
 
   //on destructure
-  const { title, price } = state;
+  const { title, price, id } = state;
   //on recupere le cookie
   const token = Cookies.get("userToken");
 

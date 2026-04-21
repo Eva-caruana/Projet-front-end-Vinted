@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useState } from "react";
 import axios from "axios";
+import Button from "../../components/Button/Button";
 
 const Login = ({ setIsConnected }) => {
   //declarer des states pour l'utlisation de formulaires
@@ -35,9 +36,9 @@ const Login = ({ setIsConnected }) => {
       }
     } catch (error) {
       if (error.response) {
-        setErrorMessage(error.response.data.message);
+        setErrorMessage("Email ou mot de passe incorrect");
       } else {
-        console.log(error);
+        setErrorMessage("Une erreur est survenue, réessaie plus tard");
       }
     }
   };
@@ -68,9 +69,9 @@ const Login = ({ setIsConnected }) => {
             />
             {/* Au clic envoyer l'utilisateur connecté sur la page home */}
 
-            <button className="connect-btn" type="submit">
+            <Button variant="filled" size="medium" width="full" type="submit">
               Se connecter
-            </button>
+            </Button>
 
             <Link className="redirection" to="/Signup">
               <p>Pas encore de compte ? Inscris-toi !</p>

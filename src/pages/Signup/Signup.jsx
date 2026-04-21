@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useState } from "react";
 import axios from "axios";
+import Button from "../../components/Button/Button";
 
 const Signup = ({ setIsConnected }) => {
   // Declaration de variable pour l'utilisation de la fonction usenavigate
@@ -120,9 +121,9 @@ const Signup = ({ setIsConnected }) => {
               </p>
             </div>
             {/* Au clic envoi l'utilisateur connecté sur la page home */}
-            <button className="submit-btn" type="submit">
+            <Button variant="filled" size="medium" width="full" type="submit">
               S'inscrire
-            </button>
+            </Button>
 
             <Link className="redirection" to="/Login">
               <p>Tu as déjà un compte ? Connecte-toi !</p>
