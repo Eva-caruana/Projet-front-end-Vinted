@@ -91,3 +91,50 @@
   display: block; /* ← le Link prend toute la largeur */
   width: 100%;
 }
+
+/* -------------------------RESPONSIVE OFFER  */
+
+/* Tablette (max 768px) */
+@media (max-width: 768px) {
+  .offer-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .offer-page-img {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .offer-bloc {
+    width: 100%;
+    height: auto; /* pour que le bloc s'adapte au contenu */
+    margin-top: 0;
+    border-radius: 0;
+  }
+}
+
+/* Mobile (max 480px) */
+@media (max-width: 480px) {
+  .offer-page-img {
+    height: 300px;
+  }
+
+  .offer-bloc {
+    padding: 20px;
+  }
+
+  .offer-price {
+    font-size: 20px;
+  }
+
+  .offer-title {
+    font-size: 18px;
+  }
+
+  .offer-description {
+    font-size: 14px;
+  }
+}

@@ -40,3 +40,38 @@
 .payment-section .checkout-form {
   width: 100%;
 }
+
+/* -------------------------RESPONSIVE PAYMENT  */
+
+/* Tablette (max 768px) */
+@media (max-width: 768px) {
+  .payment-page {
+    padding: 15px;
+    height: auto;
+  }
+
+  .payment-page section {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Mobile (max 480px) */
+@media (max-width: 480px) {
+  .payment-page {
+    padding: 10px;
+  }
+
+  .payment-page section {
+    padding: 15px;
+  }
+
+  .payment-page section > div {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .payment h2 {
+    font-size: 11px;
+  }
+}
